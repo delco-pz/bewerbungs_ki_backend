@@ -1,0 +1,6 @@
+Flask
+openai
+fpdf
+python-docx
+python-dotenv
+
