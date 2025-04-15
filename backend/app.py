@@ -12,8 +12,7 @@ from services.lebenslauf import generate_lebenslauf
 load_dotenv()
 app = Flask(__name__)
 
-# 🌍 CORS nur für deine Webflow-Domain aktivieren
-CORS(app, supports_credentials=True)
+from flask_cors import cross_origin
 # 📁 Sicherstellen, dass statisches Verzeichnis existiert
 os.makedirs("static", exist_ok=True)
 
@@ -29,7 +28,9 @@ if not OPENAI_API_KEY:
 
 # 🔽 Bewerbung generieren
 @app.route("/generate", methods=["POST"])
+@cross_origin(origin="https://ai-creation-of-cv-resume.webflow.io")
 def generate():
+    
     data = request.get_json()
     logger.info("📩 Bewerbung: Anfrage erhalten")
 
@@ -49,7 +50,9 @@ def generate():
 
 # 📄 Lebenslauf generieren
 @app.route("/generate_cv", methods=["POST"])
+@cross_origin(origin="https://ai-creation-of-cv-resume.webflow.io")
 def generate_cv():
+        
     data = request.get_json()
     logger.info("📄 Lebenslauf: Anfrage erhalten")
 
