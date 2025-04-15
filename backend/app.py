@@ -31,6 +31,7 @@ if not OPENAI_API_KEY:
 @app.route("/generate", methods=["POST"])
 @cross_origin(origin="https://ai-creation-of-cv-resume.webflow.io", 
 headers=['Content-Type'])
+
     def generate():    
     data = request.get_json()
     logger.info("📩 Bewerbung: Anfrage erhalten")
