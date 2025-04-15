@@ -1,7 +1,6 @@
 import os
 import logging
 from flask import Flask, request, jsonify, send_from_directory
-from flask_cors import CORS
 from dotenv import load_dotenv
 
 # Eigene Services
@@ -31,7 +30,6 @@ if not OPENAI_API_KEY:
 
 # 🔽 Bewerbung generieren
 @app.route("/generate", methods=["POST"])
-@cross_origin(origin="https://ai-creation-of-cv-resume.webflow.io")
 def generate():
     
     data = request.get_json()
@@ -53,7 +51,6 @@ def generate():
 
 # 📄 Lebenslauf generieren
 @app.route("/generate_cv", methods=["POST"])
-@cross_origin(origin="https://ai-creation-of-cv-resume.webflow.io")
 def generate_cv():
         
     data = request.get_json()
