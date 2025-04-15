@@ -12,8 +12,6 @@ from services.lebenslauf import generate_lebenslauf
 load_dotenv()
 app = Flask(__name__)
 
-from flask_cors import CORS
-
 # 📁 Sicherstellen, dass statisches Verzeichnis existiert
 os.makedirs("static", exist_ok=True)
 
