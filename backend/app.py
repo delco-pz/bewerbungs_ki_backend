@@ -29,10 +29,8 @@ if not OPENAI_API_KEY:
 
 # 🔽 Bewerbung generieren
 @app.route("/generate", methods=["POST"])
-@cross_origin(origin="https://ai-creation-of-cv-resume.webflow.io", 
-headers=['Content-Type'])
-
-    def generate():    
+@cross_origin(origin="https://ai-creation-of-cv-resume.webflow.io", headers=['Content-Type'])
+def generate():    
     data = request.get_json()
     logger.info("📩 Bewerbung: Anfrage erhalten")
 
@@ -52,10 +50,8 @@ headers=['Content-Type'])
 
 # 📄 Lebenslauf generieren
 @app.route("/generate_cv", methods=["POST"])
-@cross_origin(origin="https://ai-creation-of-cv-resume.webflow.io", 
-headers=['Content-Type'])
-    
-    def generate_cv():        
+@cross_origin(origin="https://ai-creation-of-cv-resume.webflow.io", headers=['Content-Type'])
+def generate_cv():
     data = request.get_json()
     logger.info("📄 Lebenslauf: Anfrage erhalten")
 
