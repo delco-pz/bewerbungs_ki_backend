@@ -2,6 +2,7 @@ import os
 import logging
 from flask import Flask, request, jsonify, send_from_directory
 from dotenv import load_dotenv
+from flask_cors import cross_origin
 
 # Eigene Services
 from services.bewerbung import generate_bewerbung
@@ -12,8 +13,6 @@ load_dotenv()
 app = Flask(__name__)
 
 from flask_cors import CORS
-
-CORS(app, resources={r"/*": {"origins": "*"}})
 
 # 📁 Sicherstellen, dass statisches Verzeichnis existiert
 os.makedirs("static", exist_ok=True)
@@ -30,8 +29,9 @@ if not OPENAI_API_KEY:
 
 # 🔽 Bewerbung generieren
 @app.route("/generate", methods=["POST"])
-def generate():
-    
+@cross_origin(origin="https://ai-creation-of-cv-resume.webflow.io", 
+headers=['Content-Type'])
+    def generate():    
     data = request.get_json()
     logger.info("📩 Bewerbung: Anfrage erhalten")
 
@@ -51,8 +51,10 @@ def generate():
 
 # 📄 Lebenslauf generieren
 @app.route("/generate_cv", methods=["POST"])
-def generate_cv():
-        
+@cross_origin(origin="https://ai-creation-of-cv-resume.webflow.io", 
+headers=['Content-Type'])
+    
+    def generate_cv():        
     data = request.get_json()
     logger.info("📄 Lebenslauf: Anfrage erhalten")
 
