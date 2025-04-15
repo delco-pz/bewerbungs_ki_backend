@@ -13,8 +13,7 @@ load_dotenv()
 app = Flask(__name__)
 
 # 🌍 CORS nur für deine Webflow-Domain aktivieren
-CORS(app, origins=["https://ai-creation-of-cv-resume.webflow.io"])
-
+CORS(app, supports_credentials=True)
 # 📁 Sicherstellen, dass statisches Verzeichnis existiert
 os.makedirs("static", exist_ok=True)
 
