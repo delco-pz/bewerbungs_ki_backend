@@ -6,4 +6,5 @@ marshmallow
 openai
 gunicorn
 fpdf
+python-docx
 
