@@ -3,6 +3,7 @@ flask-cors
 flask-limiter
 python-dotenv
 marshmallow
-gunicorn
 openai
+gunicorn
+fpdf
 
